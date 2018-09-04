@@ -1,4 +1,4 @@
-<?php
+<?php 
 
 function pegarTodosUsuarios() {
     $sql = "SELECT * FROM usuario";
@@ -33,9 +33,18 @@ function editarUsuario($id, $nome, $email) {
 }
 
 function deletarUsuario($id) {
-    $sql = "DELETE FROM usuario2 WHERE id = $id";
+    $sql = "DELETE FROM usuario WHERE id = $id";
     $resultado = mysqli_query($cnx = conn(), $sql);
     if(!$resultado) { die('Erro ao deletar usuário' . mysqli_error($cnx)); }
     return 'Usuario deletado com sucesso!';
             
+}
+function selecionarNome($login,$passwd){
+
+    $sql = "SELECT nome, senha FROM usuario WHERE nome = '$login' and  senha = '$passwd'" ;
+    $resultado = mysql_query($cnx = conn(), $sql);
+    $registro = mysql_fetch_array($resultado);
+    if(!$registro) { die('Erro ao fazer login' . mysqli_error($cnx)); }
+    return $registro;
+    echo print_r($registro);
 }

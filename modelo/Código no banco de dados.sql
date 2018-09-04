@@ -41,7 +41,7 @@ use bdloja;
 
 	create table cor(
 
-		
+	id INT(100) AUTO_INCREMENT,	
 	nomeCor VARCHAR(60) NOT NULL,
 
 

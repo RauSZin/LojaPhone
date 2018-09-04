@@ -3,7 +3,10 @@
 define('AUTENTICADOR', true);
 
 function authLogin($login, $passwd) {
-    if ($login === "admin" && $passwd == "123") {
+$admin = array();
+$admin = selecionarNome($login, $passwd);
+
+    if ($login === "$admin['nome']"&& $passwd == "$admin['senha']") {
         $_SESSION["auth"] = array("user" => "admin", "role" => "admin");
         return true;
     }
