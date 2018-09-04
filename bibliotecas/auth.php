@@ -1,12 +1,13 @@
 <?php
 
+require "modelo/usuarioModelo";
 define('AUTENTICADOR', true);
 
 function authLogin($login, $passwd) {
 $admin = array();
 $admin = selecionarNome($login, $passwd);
 
-    if ($login === "$admin['nome']"&& $passwd == "$admin['senha']") {
+    if ($login === $admin['nome'] && $passwd == $admin['senha']) {
         $_SESSION["auth"] = array("user" => "admin", "role" => "admin");
         return true;
     }
