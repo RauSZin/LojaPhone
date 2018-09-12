@@ -40,11 +40,8 @@ function deletarUsuario($id) {
             
 }
 function selecionarNome($login,$passwd){
-
-    $sql = "SELECT nome, senha FROM usuario WHERE nome = '$login' and  senha = '$passwd'" ;
-    $resultado = mysql_query($cnx = conn(), $sql);
-    $registro = mysql_fetch_array($resultado);
-    if(!$registro) { die('Erro ao fazer login' . mysqli_error($cnx)); }
+    $sql = "SELECT * FROM usuario WHERE nome = '$login' and  senha = '$passwd'" ;
+    $resultado = mysqli_query($cnx = conn(), $sql);
+    $registro = mysqli_fetch_assoc($resultado);
     return $registro;
-    echo print_r($registro);
 }

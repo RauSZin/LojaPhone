@@ -1,18 +1,9 @@
 <?php
-
-require "modelo/usuarioModelo";
 define('AUTENTICADOR', true);
 
-function authLogin($login, $passwd) {
-$admin = array();
-$admin = selecionarNome($login, $passwd);
-
-    if ($login === $admin['nome'] && $passwd == $admin['senha']) {
-        $_SESSION["auth"] = array("user" => "admin", "role" => "admin");
-        return true;
-    }
-    if ($login === "user" && $passwd == "123") {
-        $_SESSION["auth"] = array("user" => "user", "role" => "user");
+function authLogin($usuario) {
+    if (!empty($usuario)) {
+        $_SESSION["auth"] = array("user" => $usuario, "role" => $usuario["tipo"]);
         return true;
     }
     return false;

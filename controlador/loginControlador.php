@@ -1,11 +1,16 @@
 <?php
-require "./bibliotecas/auth.php";
+
+require "modelo/usuarioModelo.php";
+
 /** anon */
 function index() {
     if (ehPost()) {
         $login = $_POST["login"];
         $passwd = $_POST["passwd"];
-        if ( authLogin($login, $passwd) ) {
+
+        $usuario = selecionarNome($login, $passwd);
+
+        if (authLogin($usuario) ) {
             alert("bem vindo" . $login);
             redirecionar("usuario");
         } else {
@@ -14,6 +19,7 @@ function index() {
     }
     exibir("login/index");
 }
+
 /** anon */
 function logout() {
     authLogout();

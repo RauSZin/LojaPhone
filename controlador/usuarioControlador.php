@@ -1,12 +1,14 @@
 <?php
 
-require "modelo/usuarioModelo.php";
+require_once "modelo/usuarioModelo.php";
+
 
 function index() {
     $dados["usuarios"] = pegarTodosUsuarios();
     exibir("usuario/listar", $dados);
 }
 
+/** admin */
 function adicionar() {
     if (ehPost()) {
         extract($_POST);
@@ -17,11 +19,13 @@ function adicionar() {
     }
 }
 
+/** user */
 function deletar($id) {
     alert(deletarUsuario($id));
     redirecionar("usuario/index");
 }
 
+/** admin */
 function editar($id) {
     if (ehPost()) {
         $nome = $_POST["nome"];
