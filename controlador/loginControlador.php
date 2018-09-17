@@ -2,13 +2,13 @@
 
 require "modelo/usuarioModelo.php";
 
-/** anon */
+/** annon */
 function index() {
     if (ehPost()) {
         $login = $_POST["login"];
         $passwd = $_POST["passwd"];
 
-        $usuario = selecionarNome($login, $passwd);
+        $usuario = selecionarLogin($login, $passwd);
 
         if (authLogin($usuario) ) {
             alert("bem vindo" . $login);
@@ -20,7 +20,7 @@ function index() {
     exibir("login/index");
 }
 
-/** anon */
+/** user */
 function logout() {
     authLogout();
     alert("deslogado com sucesso!");

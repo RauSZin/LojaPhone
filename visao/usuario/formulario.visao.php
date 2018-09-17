@@ -1,10 +1,17 @@
 <form action="<?=@$acao?>" method="POST">
     nome: <input type="text" name="nome" value="<?=@$usuario['nome']?>">
+    sobrenome: <input type="text" name="sobrenome" value="<?=@$usuario['sobrenome']?>">
     email: <input type="text" name="email" value="<?=@$usuario['email']?>">
-    <select name="sexo">
+        <select name="sexo">
         <option value="m" <?=@assinalarCampo($usuario['sexo'], 'm')?>>Masculino</option>
         <option value="f" <?=@assinalarCampo($usuario['sexo'], 'f')?>>Feminino</option>
     </select>
+
+    senha: <input type="password" name="senha" value="<?=@$usuario['senha']?>">
+    numero: <input type="text" name="numero" value="<?=@$usuario['numero']?>">
+    CPF: <input type="text" name="cpf" value="<?=@$usuario['cpf']?>">
+
+
     <button type="submit">Enviar</button>
 </form>
 

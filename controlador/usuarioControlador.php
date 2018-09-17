@@ -8,24 +8,24 @@ function index() {
     exibir("usuario/listar", $dados);
 }
 
-/** admin */
+
 function adicionar() {
     if (ehPost()) {
         extract($_POST);
-        alert(adicionarUsuario($nome, $email, $sexo));
+        alert(adicionarUsuario($nome, $sobrenome, $email, $sexo, $numero, $cpf, $senha));
         redirecionar("usuario/index");
     } else {
         exibir("usuario/formulario");
     }
 }
 
-/** user */
+
 function deletar($id) {
     alert(deletarUsuario($id));
     redirecionar("usuario/index");
 }
 
-/** admin */
+
 function editar($id) {
     if (ehPost()) {
         $nome = $_POST["nome"];
@@ -38,6 +38,7 @@ function editar($id) {
         exibir("usuario/formulario", $dados);
     }
 }
+
 
 function visualizar($id) {
     $dados['usuario'] = pegarUsuarioPorId($id);

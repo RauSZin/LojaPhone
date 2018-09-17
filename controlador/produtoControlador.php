@@ -2,11 +2,12 @@
 
 require "modelo/produtoModelo.php";
 
+/** annon */
 function index() {
     $dados["produto"] = pegarTodosProdutos();
     exibir("produto/listar", $dados);
 }
-
+/** admin */
 function adicionar() {
     if (ehPost()) {
         extract($_POST);
@@ -16,12 +17,12 @@ function adicionar() {
         exibir("produto/formulario");
     }
 }
-
+/** admin */
 function deletar($id) {
     alert(deletarProduto($id));
     redirecionar("produto/index");
 }
-
+/** admin */
 function editar($id) {
     if (ehPost()) {
         $marca = $_POST["marca"];
@@ -34,7 +35,7 @@ function editar($id) {
         exibir("produto/formulario", $dados);
     }
 }
-
+/** annon */
 function visualizar($id) {
     $dados['produto'] = pegarProdutoPorId($id);
     exibir("produto/visualizar", $dados);

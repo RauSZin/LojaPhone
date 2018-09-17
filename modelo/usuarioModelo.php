@@ -17,9 +17,9 @@ function pegarUsuarioPorId($id) {
     return $usuario;
 }
 
-function adicionarUsuario($nome, $email, $sexo) {
-    $sql = "INSERT INTO usuario (nome, email, sexo) 
-			VALUES ('$nome', '$email', '$sexo')";
+function adicionarUsuario($nome, $sobrenome, $email, $sexo, $numero, $cpf, $senha) {
+    $sql = "INSERT INTO usuario (nome, sobrenome, email, sexo, numero, cpf, senha, tipo) 
+			VALUES ('$nome', '$sobrenome', '$email', '$sexo', '$numero', '$cpf', '$senha', 'user')";
     $resultado = mysqli_query($cnx = conn(), $sql);
     if(!$resultado) { die('Erro ao cadastrar usuário' . mysqli_error($cnx)); }
     return 'Usuario cadastrado com sucesso!';
@@ -39,7 +39,7 @@ function deletarUsuario($id) {
     return 'Usuario deletado com sucesso!';
             
 }
-function selecionarNome($login,$passwd){
+function selecionarLogin($login,$passwd){
     $sql = "SELECT * FROM usuario WHERE nome = '$login' and  senha = '$passwd'" ;
     $resultado = mysqli_query($cnx = conn(), $sql);
     $registro = mysqli_fetch_assoc($resultado);
