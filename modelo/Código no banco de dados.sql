@@ -39,6 +39,17 @@ use bdloja;
 
 	)engine = innoDB;
 
+
+	create table imagem(
+
+		codigo INT(100) AUTO_INCREMENT NOT NULL,
+		arquivo VARCHAR(100) NOT NULL,
+		data DATETIME NOT NULL,
+
+		PRIMARY KEY(codigo)
+
+	)engine = innoDB;
+
 	create table cor(
 
 	id INT(100) AUTO_INCREMENT,	

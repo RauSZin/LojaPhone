@@ -2,7 +2,7 @@
 
 require "modelo/usuarioModelo.php";
 
-/** annon */
+/** anon */
 function index() {
     if (ehPost()) {
         $login = $_POST["login"];
@@ -20,7 +20,7 @@ function index() {
     exibir("login/index");
 }
 
-/** user */
+/** anon */
 function logout() {
     authLogout();
     alert("deslogado com sucesso!");

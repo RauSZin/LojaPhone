@@ -26,7 +26,7 @@ function adicionarProduto($marca, $modelo, $preco, $quantidade, $cor) {
 }
 
 function editarUsuario($id, $marca, $modelo, $preco, $quantidade, $cor) {
-    $sql = "UPDATE produto SET marca = '$marca', modelo = '$modelo', preco = '$preco', quantidade = '$quantidade', cor = $cor WHERE id = $id";
+    $sql = "UPDATE produto SET marca = '$marca', modelo = '$modelo', preco = '$preco', quantidade = '$quantidade', cor = '$cor' WHERE id = $id";
     $resultado = mysqli_query($cnx = conn(), $sql);
     if(!$resultado) { die('Erro ao alterar produto' . mysqli_error($cnx)); }
     return 'produto alterado com sucesso!';
@@ -38,4 +38,12 @@ function deletarProduto($id) {
     if(!$resultado) { die('Erro ao deletar produto' . mysqli_error($cnx)); }
     return 'Produto deletado com sucesso!';
             
+}
+function adicionarImagem($codigo, $arquivo, $data){
+
+    $sql = "INSERT INTO imagem(codigo, arquivo, data) VALUES($codigo, '$novo_nome', $data)";
+    $resultado = mysqli_query($cnx = conn(), $sql);
+    if(!$resultado) { die('Erro ao adicionar Imagem !!'. mysqli_error($cnx)); }
+    return 'Imagem adicionada com sucesso';
+
 }

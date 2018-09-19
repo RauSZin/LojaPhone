@@ -2,7 +2,7 @@
 
 require_once "modelo/usuarioModelo.php";
 
-
+/** anon */
 function index() {
     $dados["usuarios"] = pegarTodosUsuarios();
     exibir("usuario/listar", $dados);
@@ -39,7 +39,7 @@ function editar($id) {
     }
 }
 
-
+/** anon */
 function visualizar($id) {
     $dados['usuario'] = pegarUsuarioPorId($id);
     exibir("usuario/visualizar", $dados);
