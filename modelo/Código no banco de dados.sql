@@ -17,14 +17,6 @@ use bdloja;
 
 	)engine = innoDB;
 
-
-/*------Usuário administrador------*/
-
-	INSERT into usuario(tipo,nome,sobrenome,email,sexo,numero,cpf,senha,data)
-				values("admin","Raul","Rodrigues","raul.ifsp@gmail.com","Masculino",998167969,123,"123123123","2001-08-01");
-
-/*---------------------------------*/
-
 	create table produto(
 
 	id INT(100) AUTO_INCREMENT,
@@ -59,3 +51,12 @@ use bdloja;
 	PRIMARY KEY(id)
 
 	)engine = innoDB;
+
+
+
+/*------Usuário administrador------*/
+
+	INSERT into usuario(tipo,nome,sobrenome,email,sexo,numero,cpf,senha,data)
+				values("admin","Raul","Rodrigues","raul.ifsp@gmail.com","Masculino",998167969,123,"123123123","2001-08-01");
+
+/*---------------------------------*/

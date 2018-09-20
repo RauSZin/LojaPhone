@@ -2,7 +2,7 @@
 
 require "modelo/produtoModelo.php";
 
-/** annon */
+/** anon */
 function index() {
     $dados["produto"] = pegarTodosProdutos();
     exibir("produto/listar", $dados);
@@ -11,21 +11,6 @@ function index() {
 function adicionar() {
     if (ehPost()) {
         extract($_POST);
-
-        if(isset($_FILES['imagem'])){
-
-// pega as ultimas 4 letras do arquivo
-
-            $extensao = strtolower(substr($_FILES['imagem']['name'], -4));
-            $novo_nome = md5(time()). $extensao;
-            $diretorio = "upload/";
-
-            move_uploaded_file($_FILES['imagem']['tmp_name'], $diretorio.$novo_nome); // efetua upload
-
-            adicionarImagem(null, '$novo_nome', NOW())
-
-        }
-
 
         alert(adicionarProduto($marca, $modelo, $preco, $quantidade, $cor));
         redirecionar("produto/index");
@@ -51,7 +36,7 @@ function editar($id) {
         exibir("produto/formulario", $dados);
     }
 }
-/** annon */
+/** anon */
 function visualizar($id) {
     $dados['produto'] = pegarProdutoPorId($id);
     exibir("produto/visualizar", $dados);

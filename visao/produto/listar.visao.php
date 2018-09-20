@@ -8,24 +8,25 @@
             <th>MODELO</th>
             <th>PREÇO</th>
             <th>QUANTIDADE</th>
+            <th>COR</th>
             <th>VIEW</th>
             <th>EDIT</th>
             <th>DELETE</th>
         </tr>
     </thead>
     <?php 
-    if (!empty($produtos)){
-    foreach ($produtos as $produto): ?>
+    if (!empty($produto)){
+    foreach ($produto as $produtos): ?>
     <tr>
-        <td><?=$produto['id']?></td>
-        <td><?=$produto['marca']?></td>
-        <td><?=$produto['modelo']?></td>
-        <td><?=$produto['preco']?></td>
-        <td><?=$produto['quantidade']?></td>
-        <td><?=$produto['cor']?></td>
-        <td><a href="./produto/visualizar/<?=$produto['id']?>" class="btn btn-secondary">view</a></td>
-        <td><a href="./produto/editar/<?=$produto['id']?>" class="btn btn-info">edit</a></td>
-        <td><a href="./produto/deletar/<?=$produto['id']?>" class="btn btn-danger">del</a></td>
+        <td><?=$produtos['id']?></td>
+        <td><?=$produtos['marca']?></td>
+        <td><?=$produtos['modelo']?></td>
+        <td><?=$produtos['preco']?></td>
+        <td><?=$produtos['quantidade']?></td>
+        <td><?=$produtos['cor']?></td>
+        <td><a href="./produto/visualizar/<?=$produtos['id']?>" class="btn btn-secondary">view</a></td>
+        <td><a href="./produto/editar/<?=$produtos['id']?>" class="btn btn-info">edit</a></td>
+        <td><a href="./produto/deletar/<?=$produtos['id']?>" class="btn btn-danger">del</a></td>
     </tr>
     <?php endforeach; } ?>
 </table>

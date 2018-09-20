@@ -11,7 +11,7 @@ function pegarTodosProdutos() {
 }
 
 function pegarProdutoPorId($id) {
-    $sql = "SELECT * FROM produto WHERE id= $id";
+    $sql = "SELECT * FROM produto WHERE id = '$id'";
     $resultado = mysqli_query(conn(), $sql);
     $produto = mysqli_fetch_array($resultado);
     return $produto;
@@ -19,7 +19,7 @@ function pegarProdutoPorId($id) {
 
 function adicionarProduto($marca, $modelo, $preco, $quantidade, $cor) {
     $sql = "INSERT INTO produto (marca, modelo, preco, quantidade, cor) 
-			VALUES ('$marca', '$modelo', '$preco', '$quantidade', $cor)";
+			VALUES ('$marca', '$modelo', '$preco', '$quantidade', '$cor')";
     $resultado = mysqli_query($cnx = conn(), $sql);
     if(!$resultado) { die('Erro ao cadastrar produto' . mysqli_error($cnx)); }
     return 'Produto cadastrado com sucesso!';
