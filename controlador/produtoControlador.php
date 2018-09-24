@@ -1,6 +1,7 @@
 <?php
 
 require "modelo/produtoModelo.php";
+require "servicos/uploadImagem.php";
 
 /** anon */
 function index() {
@@ -11,8 +12,12 @@ function index() {
 function adicionar() {
     if (ehPost()) {
         extract($_POST);
+        $imagem_name    = $_FILES["imagemProduto"]["name"];
+        $imagem_tmp     = $_FILES["imagemProduto"]["tmp_name"];
 
-        alert(adicionarProduto($marca, $modelo, $preco, $quantidade, $cor));
+        $diretorio_imagem   = uploadImagem($imagem_name, $imagem_tmp);
+
+        alert(adicionarProduto($marca, $modelo, $preco, $quantidade, $cor,$diretorio_imagem));
         redirecionar("produto/index");
     } else {
         exibir("produto/formulario");
@@ -26,9 +31,8 @@ function deletar($id) {
 /** admin */
 function editar($id) {
     if (ehPost()) {
-        $marca = $_POST["marca"];
-        $modelo = $_POST["modelo"];
-        alert(editarProduto($marca, $modelo, $preco, $quantidade));
+        extract($_POST);
+        alert(editarProduto($id, $marca, $modelo, $preco, $quantidade, $cor, $imagem));
         redirecionar("produto/index");
     } else {
         $dados['produto'] = pegarProdutoPorId($id);
