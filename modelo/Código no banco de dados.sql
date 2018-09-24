@@ -1,3 +1,5 @@
+-- É só copiar e colar
+
 create database bdloja;
 use bdloja;
 

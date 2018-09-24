@@ -8,7 +8,7 @@ function index() {
     exibir("usuario/listar", $dados);
 }
 
-
+/** admin */
 function adicionar() {
     if (ehPost()) {
         extract($_POST);
@@ -19,13 +19,13 @@ function adicionar() {
     }
 }
 
-
+/** admin */
 function deletar($id) {
     alert(deletarUsuario($id));
     redirecionar("usuario/index");
 }
 
-
+/** admin  */
 function editar($id) {
     if (ehPost()) {
         $nome = $_POST["nome"];

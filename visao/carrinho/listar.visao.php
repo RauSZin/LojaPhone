@@ -7,7 +7,6 @@
             <th>MARCA</th>
             <th>MODELO</th>
             <th>PRECO</th>
-            <th>EDIT</th>
             <th>DELETE</th>
         </tr>
     </thead>
@@ -17,11 +16,10 @@
         <td><?=$produtos['marca']?></td>
         <td><?=$produtos['modelo']?></td>
         <td><a href=".produto/visualizar/<?=$produtos['id']?>" class="btn btn-secondary">view</a></td>
-        <td><a href=".produto/editar/<?=$produtos['id']?>" class="btn btn-info">edit</a></td>
-        <td><a href=".produto/deletar/<?=$produtos['id']?>" class="btn btn-danger">del</a></td>
+        <td><a href="./carrinho/deletar/<?=$produtos['id']?>" class="btn btn-danger">del</a></td>
     </tr>
     <?php endforeach; ?>
 </table>
 
 
-<a href="./usuario/adicionar" class="btn btn-primary">Adicionar novo usuario</a>
+<a href="./produto/index" class="btn btn-primary">Produtos</a>
