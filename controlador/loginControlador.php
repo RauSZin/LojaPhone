@@ -24,6 +24,6 @@ function index() {
 function logout() {
     authLogout();
     alert("deslogado com sucesso!");
-    redirecionar("produto");
+    redirecionar("produto/index");
 }
 ?>

@@ -44,3 +44,11 @@ function visualizar($id) {
     $dados['usuario'] = pegarUsuarioPorId($id);
     exibir("usuario/visualizar", $dados);
 }
+function perfil(){
+
+    $dados = array();
+    $dados = $_SESSION["auth"];
+
+    exibir ("usuario/visualizarPerfil", $dados);
+
+}
