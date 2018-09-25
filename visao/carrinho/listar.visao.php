@@ -15,7 +15,7 @@
         <td><?=$produtos['id']?></td>
         <td><?=$produtos['marca']?></td>
         <td><?=$produtos['modelo']?></td>
-        <td><a href=".produto/visualizar/<?=$produtos['id']?>" class="btn btn-secondary">view</a></td>
+        <td><a href="./produto/visualizar/<?=$produtos['id']?>" class="btn btn-secondary">view</a></td>
         <td><a href="./carrinho/deletar/<?=$produtos['id']?>" class="btn btn-danger">del</a></td>
     </tr>
     <?php endforeach; ?>
