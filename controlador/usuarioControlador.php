@@ -2,17 +2,36 @@
 
 require_once "modelo/usuarioModelo.php";
 
+
 /** anon */
 function index() {
     $dados["usuarios"] = pegarTodosUsuarios();
     exibir("usuario/listar", $dados);
 }
 
-/** admin */
+/** anon */
 function adicionar() {
     if (ehPost()) {
         extract($_POST);
+
+        $nome = validarNomes($nome);
+        $sobrenome = validarNomes($sobrenome);
+        $email = validarEmail($email);
+        $sexo = validarSexo($sexo);
+        $numero = validarNumero($numero);
+        $cpf = validarCpf($cpf);
+        $senha = validarSenha($senha, $csenha);
+
+        echo $_SESSION["erro"];
+
+ if ($_SESSION["erro"][0] == true){
+
         alert(adicionarUsuario($nome, $sobrenome, $email, $sexo, $numero, $cpf, $senha));
+} else{
+
+    echo $_SESSION["erro"];
+
+}      
         redirecionar("usuario/index");
     } else {
         exibir("usuario/formulario");

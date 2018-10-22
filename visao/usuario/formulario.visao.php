@@ -1,3 +1,8 @@
+<?php
+ $_SESSION["erro"];
+
+?>
+
 <form action="<?=@$acao?>" method="POST">
     nome: <input type="text" name="nome" value="<?=@$usuario['nome']?>">
     sobrenome: <input type="text" name="sobrenome" value="<?=@$usuario['sobrenome']?>">
@@ -8,6 +13,7 @@
     </select>
 
     senha: <input type="password" name="senha" value="<?=@$usuario['senha']?>">
+    confirmar senha: <input type="password" name="csenha" value="<?=@$usuario['csenha']?>">
     numero: <input type="text" name="numero" value="<?=@$usuario['numero']?>">
     CPF: <input type="text" name="cpf" value="<?=@$usuario['cpf']?>">
 
