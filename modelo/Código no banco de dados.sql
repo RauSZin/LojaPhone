@@ -49,5 +49,7 @@ use bdloja;
 
 	INSERT into usuario(tipo,nome,sobrenome,email,sexo,numero,cpf,senha,data)
 				values("admin","Raul","Rodrigues","raul.ifsp@gmail.com","Masculino",998167969,123,"123123123","2001-08-01");
+	INSERT into usuario(tipo,nome,sobrenome,email,sexo,numero,cpf,senha,data)
+				values("admin","Rafaela","Rodrigues","tororafaela6@gmail.com","Feminino",988320238,123,"123123123","2002-06-22");
 
 /*---------------------------------*/

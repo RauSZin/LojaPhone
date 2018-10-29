@@ -1,3 +1,4 @@
+
 <h2>Listar usuários</h2>
 
 <table class="table">
@@ -11,7 +12,8 @@
             <th>DELETE</th>
         </tr>
     </thead>
-    <?php foreach ($usuarios as $usuario): ?>
+    <?php 
+        foreach ($usuarios as $usuario): ?>
     <tr>
         <td><?=$usuario['id']?></td>
         <td><?=$usuario['nome']?></td>
@@ -25,4 +27,3 @@
 
 
 <a href="./usuario/adicionar" class="btn btn-primary">Adicionar novo usuario</a>
-

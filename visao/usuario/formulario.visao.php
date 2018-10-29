@@ -1,8 +1,17 @@
 <?php
- $_SESSION["erro"];
+
+ $_SESSION["erro"] = false;
+
+ if(!empty($erro)){
+
+  foreach ($erro as $erros){
+
+  alert($erros);
+
+ }
+}
 
 ?>
-
 <form action="<?=@$acao?>" method="POST">
     nome: <input type="text" name="nome" value="<?=@$usuario['nome']?>">
     sobrenome: <input type="text" name="sobrenome" value="<?=@$usuario['sobrenome']?>">

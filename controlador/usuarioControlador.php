@@ -22,17 +22,17 @@ function adicionar() {
         $cpf = validarCpf($cpf);
         $senha = validarSenha($senha, $csenha);
 
-        echo $_SESSION["erro"];
-
- if ($_SESSION["erro"][0] == true){
+ if ($_SESSION["erro"][0] <> true){
 
         alert(adicionarUsuario($nome, $sobrenome, $email, $sexo, $numero, $cpf, $senha));
+        redirecionar("usuario/index");
 } else{
 
-    echo $_SESSION["erro"];
+    $dados["erro"] = $_SESSION["erro"];
+    exibir("usuario/formulario", $dados);
 
 }      
-        redirecionar("usuario/index");
+    
     } else {
         exibir("usuario/formulario");
     }
