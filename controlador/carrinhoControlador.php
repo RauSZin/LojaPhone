@@ -5,7 +5,7 @@ require "modelo/produtoModelo.php";
 /** anon */
 function index() {
 
-	if (isset($_SESSION)){
+	if (isset($_SESSION["carrinho"])){
 		$produto = array();
 
 		foreach ($_SESSION["carrinho"] as $id) {
@@ -14,7 +14,11 @@ function index() {
 		
 		$dados["produto"] = $produto;
 		exibir("carrinho/listar", $dados);
-}
+	}else{
+
+ echo ("Não há produtos na loja");
+ exibir("carrinho/listar");
+	}
 }
 
 /** anon */

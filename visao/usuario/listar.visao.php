@@ -27,4 +27,3 @@
 
 
 <a href="./usuario/adicionar" class="btn btn-primary">Adicionar novo usuario</a>
-<?php echo $_SESSION["erro"][0]; ?>
