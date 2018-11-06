@@ -28,9 +28,9 @@ function authGetUserRole() {
 function validarNomes($nome){
 
     $nome = trim(strip_tags($nome));
-    $count = strlen($nome);
+    $count = strlen($nome);   
 
-  if ((! isset($nome) or (!is_string($nome)) and $count < 3)){
+  if ((! isset($nome) or (!is_string($nome)) or $count < 3)){
 
 
             $_SESSION["erro"][0] = true;

@@ -47,10 +47,28 @@ function deletar($id) {
 /** admin  */
 function editar($id) {
     if (ehPost()) {
-        $nome = $_POST["nome"];
-        $email = $_POST["email"];
-        alert(editarUsuario($id, $nome, $email));
+        extract($_POST);
+
+        $nome = validarNomes($nome);
+        $sobrenome = validarNomes($sobrenome);
+        $email = validarEmail($email);
+        $sexo = validarSexo($sexo);
+        $numero = validarNumero($numero);
+        $cpf = validarCpf($cpf);
+        $senha = validarSenha($senha, $csenha);
+
+if ($_SESSION["erro"][0] <> true){
+
+        alert(editarUsuario($id, $nome, $sobrenome, $email, $sexo, $numero, $cpf, $senha));
         redirecionar("usuario/index");
+
+} else{
+
+    $dados["erro"] = $_SESSION["erro"];
+    exibir("usuario/formulario", $dados);
+
+}   
+        
     } else {
         $dados['usuario'] = pegarUsuarioPorId($id);
         $dados['acao'] = "./usuario/editar/$id";

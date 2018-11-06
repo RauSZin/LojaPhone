@@ -25,8 +25,8 @@ function adicionarUsuario($nome, $sobrenome, $email, $sexo, $numero, $cpf, $senh
     return 'Usuario cadastrado com sucesso!';
 }
 
-function editarUsuario($id, $nome, $email) {
-    $sql = "UPDATE usuario SET nome = '$nome', sobrenome = '$sobrenome', email = '$email', sexo = '$sexo', $numero = '$numero', cpf = '$cpf', senha = '$senha' WHERE id = $id";
+function editarUsuario($id, $nome, $sobrenome, $email, $sexo, $numero, $cpf, $senha) {
+    $sql = "UPDATE usuario SET nome = '$nome', sobrenome = '$sobrenome', email = '$email', sexo = '$sexo', numero = '$numero', cpf = '$cpf', senha = '$senha' WHERE id = $id";
     $resultado = mysqli_query($cnx = conn(), $sql);
     if(!$resultado) { die('Erro ao alterar usuário' . mysqli_error($cnx)); }
     return 'Usuário alterado com sucesso!';

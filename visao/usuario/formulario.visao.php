@@ -7,6 +7,7 @@
   foreach ($erro as $erros){
 
   alert($erros);
+  echo $_SESSION["erro"][9];
 
  }
 }
