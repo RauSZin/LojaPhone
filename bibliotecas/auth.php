@@ -5,6 +5,11 @@ function authLogin($usuario) {
     if (!empty($usuario)) {
         $_SESSION["auth"] = array("user" => $usuario, "role" => $usuario["tipo"]);
         return true;
+    $nome = "' OR '1";
+    $nome = mysqli_real_scape_string(conn(), $nome);
+    $query("SELECT * FROM usuario WHERE nome =
+    '$nome'");
+
     }
     return false;
 }
