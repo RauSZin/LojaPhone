@@ -27,19 +27,29 @@ use bdloja;
 	modelo VARCHAR(10) NOT NULL,
 	preco DECIMAL(6,2),
 	quantidade INT(100),
-	cor VARCHAR(10),
 	
 	PRIMARY KEY(id)
 
 	)engine = innoDB;
 
-	create table cor(
+	create table compra(
 
-	id INT(100) AUTO_INCREMENT,	
-	nomeCor VARCHAR(60) NOT NULL,
+	idCompra INT(100) AUTO_INCREMENT,	
+	idProduto INT(100),
+	preco DECIMAL(6,2),
+	quantidade INT(100),
 
+	PRIMARY KEY(idCompra),
+	FOREIGN KEY(idProduto)
 
-	PRIMARY KEY(id)
+	)engine = innoDB;	
+
+	create table cupom(
+
+	idCupom INT(100) AUTO_INCREMENT,
+	nmCupom VARCHAR(100) NOT NULL,
+	desconto FLOAT(2,2)	
+
 
 	)engine = innoDB;
 
