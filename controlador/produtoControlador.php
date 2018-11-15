@@ -17,7 +17,7 @@ function adicionar() {
 
         $diretorio_imagem   = uploadImagem($imagem_name, $imagem_tmp);
 
-        alert(adicionarProduto($marca, $modelo, $preco, $quantidade, $cor,$diretorio_imagem));
+        alert(adicionarProduto($marca, $modelo, $preco, $quantidade, $diretorio_imagem));
         redirecionar("produto/index");
     } else {
         exibir("produto/formulario");

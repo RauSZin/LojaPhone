@@ -6,14 +6,6 @@
 
 <br>
 
- <select name="cor">
-           <option value="azul" <?=@assinalarCampo($produto['cor'], 'azul')?>>Azul</option>    
-           <option value="vermelho" <?=@assinalarCampo($produto['cor'], 'vermelho
-         ')?>>Vermelho</option>
-     </select>
-
-<br>
-
 Imagem: <input type="file" id="exampleInputFile" class="form" name="imagemProduto">
 
     <button type="submit">Enviar</button>

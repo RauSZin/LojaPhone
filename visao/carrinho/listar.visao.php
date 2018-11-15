@@ -1,11 +1,7 @@
 <?php
-
  if (isset($erro)){
-
     alert($erro);
-
  }
-
 ?>
 <h2>Listar Carrinho</h2>
 
@@ -33,11 +29,5 @@
     </tr>
      <?php endforeach; } ?>
 </table>
-
-<?php
-
-echo 
-
-?>
 
 <a href="./produto/index" class="btn btn-primary">Produtos</a>

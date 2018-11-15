@@ -18,15 +18,15 @@ function pegarProdutoPorId($id) {
 }
 
 function adicionarProduto($marca, $modelo, $preco, $quantidade, $cor, $diretorioImg) {
-    $sql = "INSERT INTO produto (marca, modelo, preco, quantidade, cor, imagem) 
-			VALUES ('$marca', '$modelo', '$preco', '$quantidade', '$cor','$diretorioImg')";
+    $sql = "INSERT INTO produto (marca, modelo, preco, quantidade, imagem) 
+			VALUES ('$marca', '$modelo', '$preco', '$quantidade', '$diretorioImg')";
     $resultado = mysqli_query($cnx = conn(), $sql);
     if(!$resultado) { die('Erro ao cadastrar produto' . mysqli_error($cnx)); }
     return 'Produto cadastrado com sucesso!';
 }
 
-function editarProduto($id, $marca, $modelo, $preco, $quantidade, $cor) {
-    $sql = "UPDATE produto SET marca = '$marca', modelo = '$modelo', preco = '$preco', quantidade = '$quantidade', cor = '$cor' WHERE id = $id";
+function editarProduto($id, $marca, $modelo, $preco, $quantidade) {
+    $sql = "UPDATE produto SET marca = '$marca', modelo = '$modelo', preco = '$preco', quantidade = '$quantidade' WHERE id = $id";
     $resultado = mysqli_query($cnx = conn(), $sql);
     if(!$resultado) { die('Erro ao alterar produto' . mysqli_error($cnx)); }
     return 'produto alterado com sucesso!';

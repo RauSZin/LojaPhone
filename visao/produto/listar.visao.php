@@ -8,7 +8,6 @@
             <th>MODELO</th>
             <th>PREÇO</th>
             <th>QUANTIDADE</th>
-            <th>COR</th>
             <th>VIEW</th>
             <th>EDIT</th>
             <th>DELETE</th>
@@ -23,7 +22,6 @@
         <td><?=$produtos['modelo']?></td>
         <td><?=$produtos['preco']?></td>
         <td><?=$produtos['quantidade']?></td>
-        <td><?=$produtos['cor']?></td>
         <td><a href="./produto/visualizar/<?=$produtos['id']?>" class="btn btn-secondary">view</a></td>
         <td><a href="./produto/editar/<?=$produtos['id']?>" class="btn btn-info">edit</a></td>
         <td><a href="./produto/deletar/<?=$produtos['id']?>" class="btn btn-danger">del</a></td>
