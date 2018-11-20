@@ -5,7 +5,7 @@ use bdloja;
 
 	create table usuario(
 
-		id INT(100) AUTO_INCREMENT,
+		idUsuario INT(100) AUTO_INCREMENT,
 		tipo VARCHAR(5) NOT NULL,
 		nome VARCHAR(60) NOT NULL,
 		sobrenome VARCHAR(60),
@@ -18,6 +18,8 @@ use bdloja;
 		PRIMARY KEY(id)
 
 	)engine = innoDB;
+
+
 
 	create table produto(
 
@@ -32,26 +34,43 @@ use bdloja;
 
 	)engine = innoDB;
 
+
+
 	create table compra(
 
 	idCompra INT(100) AUTO_INCREMENT,	
 	idProduto INT(100),
+	id INT(100),
 	preco DECIMAL(6,2),
 	quantidade INT(100),
 
 	PRIMARY KEY(idCompra),
-	FOREIGN KEY(idProduto)
+	FOREIGN KEY(idProduto),
+	FOREIGN KEY(idUsuario)
 
 	)engine = innoDB;	
+
+
+
 
 	create table cupom(
 
 	idCupom INT(100) AUTO_INCREMENT,
 	nmCupom VARCHAR(100) NOT NULL,
-	desconto FLOAT(2,2)	
+	codigo VARCHAR(100),
+	desconto FLOAT(2,2),
+	quantidadeCupom INT(100),
 
 
 	)engine = innoDB;
+
+
+-- Inner's join's
+
+
+
+
+
 
 
 

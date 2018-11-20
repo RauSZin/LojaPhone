@@ -3,62 +3,74 @@
 require "modelo/produtoModelo.php";
 
 /** anon */
-function index() {
+// unset($_SESSION["carrinho"]);
+function index(){
 
-	if (empty($_SESSION["carrinho"])){
-		$produto = array();
-		foreach ($_SESSION["carrinho"] as $id) {
-			$produto[] = pegarProdutoPorId($id);
-		}
-		$quantidade = array();
-		foreach ($_SESSION["carrinho"] as $produto) {
-			$quantidade = $produto["quantidade"];
-		}
-		$dados["quantidade"] = $quantidade;
+    if (isset($_SESSION["carrinho"])) {
+        $produtosCarrinho = array();
+        foreach ($_SESSION["carrinho"] as $produtoID) {
+            $produtosCarrinho[] = pegarProdutoPorId($produtoID["id"]);
+        }
+        $dados["produtos"] = $produtosCarrinho; 
 
-		exibir("carrinho/listar", $dados);
-	}else{
- echo ("Não há produtos na loja");
- exibir("carrinho/listar");
-	}
+// Mandar a quantidade
+
+        exibir("carrinho/listar", $dados);
+    } else {
+        echo "Nao existem produtos no carrinho!";
+        exibir("carrinho/listar");
+    }
 }
 
 /** anon */
-function adicionar($id) {
-
+function adicionar($id)
+{
     if (!isset($_SESSION["carrinho"])) {
         $_SESSION["carrinho"] = array();
     }
 
-    $carrinhoEncontrado = false;
-    for ($i = 0; $i < count($_SESSION["carrinho"]); $i++) {
-        if ($_SESSION["carrinho"][$i]["id"] == $id) {
-            $_SESSION["carrinho"][$i]["quantidade"]++;
+    $alt = false ;
 
-            $carrinhoEncontrado = true;
+    for ($i=0; $i < count($_SESSION["carrinho"]); $i++) {
+        if ($_SESSION["carrinho"][$i]["id"] == $id) {
+            $alt = true;
+            $_SESSION["carrinho"][$i]["quantidadeNoCarrinho"]++;
         }
     }
-    if ($carrinhoEncontrado == false) {
-
+    if (!$alt) {
         $produto["id"] = $id;
-        $produto["quantidade"] = 1;
+
+        $produto["quantidadeNoCarrinho"] = 1;
+
         $_SESSION["carrinho"][] = $produto;
     }
-    redirecionar("carrinho/index");
+
+ 
+   
+    redirecionar("carrinho");
 }
 
 /** anon */
-function deletar($id){
+function deletar($id) {
+    for ($i = 0; $i < count($_SESSION["carrinho"]); $i++) {
+
+        if ($_SESSION["carrinho"][$i]["id"] == $id) {
+
+            if ($_SESSION["carrinho"][$i]["quantidadeNoCarrinho"] <= 1){
+
+                    unset($_SESSION["carrinho"][$i]);
+
+                }else{
+
+                        $_SESSION["carrinho"][$i]["quantidadeNoCarrinho"] = $_SESSION["carrinho"][$i]["quantidadeNoCarrinho"] - 1; 
+
+                }
 
 
-	if(isset($_SESSION["carrinho"])){
+        }
+    }
 
-		$key = array_search($id, $_SESSION['carrinho']);
+        redirecionar("carrinho/index");
 
-		if($key!==false){
-    		unset($_SESSION['carrinho'][$key]);
-		}
-	redirecionar("carrinho/index");
-	}
 }
 ?>
