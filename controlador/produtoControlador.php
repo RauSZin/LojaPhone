@@ -1,5 +1,5 @@
 <?php
-
+// lembre de autenticar os dados do adicionar e editar
 require "modelo/produtoModelo.php";
 require "servicos/uploadImagem.php";
 

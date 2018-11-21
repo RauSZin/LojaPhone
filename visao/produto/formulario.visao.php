@@ -12,5 +12,3 @@ Imagem: <input type="file" id="exampleInputFile" class="form" name="imagemProdut
 
 
 </form>
-
-<!-- <form action="upload.php" method="POST" enctype="multipart/form-data"> -->    
